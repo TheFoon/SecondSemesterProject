@@ -1,3 +1,4 @@
 # SecondSemesterProject
 
 Dominik :)
+Pálya Tamás
