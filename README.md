@@ -1,1 +1,2 @@
 # SecondSemesterProject
+Pálya Tamás
