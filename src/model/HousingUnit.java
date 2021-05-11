@@ -17,6 +17,10 @@ public class HousingUnit {
 	private void deleteDefect(Defect defect) {
 		defects.delete(defect);
 	}
+	
+	private void listDefects() {
+		defects.forEach(defect -> System.out.println(defect.getType()));
+	}
 
 	public String getType() {
 		return type;
