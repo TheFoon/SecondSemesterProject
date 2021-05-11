@@ -27,11 +27,11 @@ public class DBConnection {
 		}
 	}
 	
-	public static void setConnectionInfo(String dbName, String srvAddress, int srvPort, String uName, String pswd) {
-		databaseName = dbName;
-		serverAddress = srvAddress;
-		serverPort = srvPort;
-		userName = uName;
+	public static void setConnectionInfo(String db_name, String srv_address, int srv_port, String u_name, String pswd) {
+		databaseName = db_name;
+		serverAddress = srv_address;
+		serverPort = srv_port;
+		userName = u_name;
 		password = pswd;
 	}
 	
