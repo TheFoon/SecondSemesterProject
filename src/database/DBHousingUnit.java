@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import model.HousingUnit;
 
-public class DBHousingUnit implements IDBHousingUnit {
+public class DBHousingUnit implements HousingUnitDBIF {
 	
 	private PreparedStatement p_stmt;
 	private DBConnection db_connection;

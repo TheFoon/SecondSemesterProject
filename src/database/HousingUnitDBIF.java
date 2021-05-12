@@ -2,6 +2,6 @@ package database;
 
 import model.HousingUnit;
 
-public interface IDBHousingUnit {
+public interface HousingUnitDBIF {
 	HousingUnit findById(int id);
 }

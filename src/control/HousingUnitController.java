@@ -2,12 +2,12 @@ package control;
 
 import database.DBHousingUnit;
 import database.DataAccessException;
-import database.IDBHousingUnit;
+import database.HousingUnitDBIF;
 import model.HousingUnit;
 
 public class HousingUnitController {
 	
-	IDBHousingUnit dbHousingUnit;
+	HousingUnitDBIF dbHousingUnit;
 
 	public HousingUnitController() throws DataAccessException {
 		dbHousingUnit = new DBHousingUnit();
