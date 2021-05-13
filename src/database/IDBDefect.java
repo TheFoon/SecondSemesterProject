@@ -1,5 +1,9 @@
 package database;
 
+import java.sql.SQLException;
+
+import model.Defect;
+
 public interface IDBDefect {
-	IDBDefect findById(int id);
+	Defect findById(int id) throws DataAccessException, SQLException;
 }

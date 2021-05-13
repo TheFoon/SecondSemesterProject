@@ -12,8 +12,21 @@ public class DBDefect implements IDBDefect{
 		db_connection = DBConnection.getInstance();
 	}
 	@Override
-	public DBDefect findById(int id) {
-		return null;
+	public Defect findById(int id) throws DataAccessException, SQLException {
+		Defect defect = null;
+		String query = "select * from Defect where id = ?";
+		
+		db_connection = DBConnection.getInstance();
+		
+		p_stmt = db_connection.getConnection().prepareStatement(query);
+		p_stmt.setInt(1, id);
+		
+		ResultSet rs = p_stmt.executeQuery();
+		if(rs.next())
+		{
+			defect = buildObject(rs);
+		}
+		return defect;
 	}
 	private Defect buildObject(ResultSet result_set) throws SQLException
 	{
