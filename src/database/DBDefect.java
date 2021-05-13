@@ -32,4 +32,10 @@ public class DBDefect implements IDBDefect{
 	{
 		return new Defect(result_set.getString(1), result_set.getString(2), result_set.getString(3));
 	}
+	
+	@Override
+	public void insertDefect(Defect defect) {
+		// TODO Auto-generated method stub
+		
+	}
 }
