@@ -8,4 +8,8 @@ public class DataAccessException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	public DataAccessException() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

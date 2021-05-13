@@ -6,7 +6,9 @@ import java.sql.SQLException;
 
 import model.HousingUnit;
 
-public class DBHousingUnit implements HousingUnitDBIF {
+public class DBHousingUnit implements IDBHousingUnit {
+	
+	private static final String FIND_BY_ID = "select * from HousingUnit where id = ?";
 	
 	private PreparedStatement p_stmt;
 	private DBConnection db_connection;
@@ -21,8 +23,18 @@ public class DBHousingUnit implements HousingUnitDBIF {
 	}
 
 	@Override
-	public HousingUnit findById(int id) {
-		
+	public HousingUnit findById(int id) throws DataAccessException {
+		HousingUnit housing_unit = null;
+		try {
+			p_stmt.setString(id, FIND_BY_ID);
+			ResultSet rs = p_stmt.executeQuery();
+			if (rs.next()) {
+				housing_unit = buildObject(rs);
+			} 
+				
+			} catch (SQLException e) {
+				throw new DataAccessException();
+			}
 		return null;
 	}
 }
