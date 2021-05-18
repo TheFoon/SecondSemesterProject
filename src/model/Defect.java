@@ -2,6 +2,7 @@ package model;
 
 public class Defect {
 	
+	private int id;
 	private String type;
 	private String description;
 	private String room_name;
@@ -36,6 +37,16 @@ public class Defect {
 	public void setRoomName(String room_name) {
 		this.room_name = room_name;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
 	
 	
 }
