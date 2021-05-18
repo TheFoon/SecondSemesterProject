@@ -37,4 +37,20 @@ public class DBHousingUnit implements IDBHousingUnit {
 			}
 		return null;
 	}
+	
+	@Override
+	public void insertHousingUnit(HousingUnit housing_unit) throws DataAccessException
+	{
+		String sql_insert = "insert into HousingUnit values (?, ?);";
+		try
+		{
+			PreparedStatement p_stmt = db_connection.getConnection().prepareStatement(sql_insert);
+			p_stmt.setString(1, housing_unit.getType());
+			p_stmt.setString(2, housing_unit.getAddress());
+		}
+		catch(SQLException e)
+		{
+			throw new DataAccessException();
+		}
+	}
 }

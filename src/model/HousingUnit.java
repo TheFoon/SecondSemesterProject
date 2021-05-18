@@ -5,6 +5,7 @@ import java.util.List;
 public class HousingUnit {
 	private String type;
 	private List<Defect> defects;
+	private String address;
 	
 	public HousingUnit(String type) {
 		this.setType(type);
@@ -28,5 +29,13 @@ public class HousingUnit {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }
