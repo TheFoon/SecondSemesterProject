@@ -4,13 +4,13 @@ public class Defect {
 	
 	private String type;
 	private String description;
-	private String room_number;
+	private String room_name;
 	
-	public Defect(String type, String description, String room_number)
+	public Defect(String type, String description, String room_name)
 	{
 		this.type = type;
 		this.description = description;
-		this.room_number = room_number;
+		this.room_name = room_name;
 	}
 
 	public String getType() {
@@ -29,12 +29,12 @@ public class Defect {
 		this.description = description;
 	}
 
-	public String getRoom_number() {
-		return room_number;
+	public String getRoomName() {
+		return room_name;
 	}
 
-	public void setRoom_number(String room_number) {
-		this.room_number = room_number;
+	public void setRoomName(String room_name) {
+		this.room_name = room_name;
 	}
 	
 	
