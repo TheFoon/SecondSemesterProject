@@ -14,7 +14,7 @@ public class HousingUnitController {
 		
 	}
 
-	public HousingUnit findById(int id) {
+	public HousingUnit findById(int id) throws DataAccessException {
 		return dbHousingUnit.findById(id);
 	}
 }

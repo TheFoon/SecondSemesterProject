@@ -15,7 +15,7 @@ public class HousingUnit {
 	}
 	
 	private void deleteDefect(Defect defect) {
-		defects.delete(defect);
+		defects.remove(defect);
 	}
 	
 	private void listDefects() {
