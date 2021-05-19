@@ -40,9 +40,11 @@ public class DBDefect implements IDBDefect {
 
 	@Override
 	public void insertDefect(Defect defect, int cleaner_id, int housing_unit_id) throws DataAccessException {
-		String sql_insert = "insert into Defect values (?, ?, ?, ?, ?)";
+		String insert_query = "insert into Defect values (?, ?, ?, ?, ?)";
+		Connection con = db_connection.getConnection();
 		try {
-			PreparedStatement p_stmt = db_connection.getConnection().prepareStatement(sql_insert,
+			con.setAutoCommit(false);
+			PreparedStatement p_stmt = con.prepareStatement(insert_query,
 					Statement.RETURN_GENERATED_KEYS);
 
 			p_stmt.setString(1, defect.getType());
@@ -64,8 +66,27 @@ public class DBDefect implements IDBDefect {
 				throw new SQLException("Creating defect failed, no ID obtained.");
 			}
 
+			con.commit();
 		} catch (SQLException e) {
+			try
+			{
+				con.rollback();
+			}
+			catch (SQLException ekszepcio)
+			{}
+			
 			throw new DataAccessException();
+		}
+		finally
+		{
+			try
+			{
+				con.setAutoCommit(true);
+				}
+			catch (SQLException e)
+			{
+				throw new DataAccessException();
+			}
 		}
 
 	}
