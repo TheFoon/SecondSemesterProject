@@ -27,7 +27,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class MainFrame extends JFrame {
+public class MainMenuManager extends JFrame {
 
 	/**
 	 * 
@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainFrame frame = new MainFrame();
+					MainMenuManager frame = new MainMenuManager();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +54,7 @@ public class MainFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainFrame() {
+	public MainMenuManager() {
 		
 		setTitle("Main menu");
 		
