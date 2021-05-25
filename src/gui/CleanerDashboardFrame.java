@@ -10,9 +10,7 @@ import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.Icon;
 import java.awt.Font;
-import java.awt.SystemColor;
 
 public class CleanerDashboardFrame extends JFrame {
 
@@ -59,98 +57,50 @@ public class CleanerDashboardFrame extends JFrame {
 		panelMenu.add(lblIconLogo);
 		
 		JPanel panel_report_defect = new JPanel();
-		panel_report_defect.setBorder(new LineBorder(Color.BLACK));
-		panel_report_defect.setBackground(new Color(105, 105, 105));
-		panel_report_defect.setBounds(0, 110, 160, 30);
+		createOptionPanel(panel_report_defect, 110, "Report defect", "src/res/report_defect.png");
 		panelMenu.add(panel_report_defect);
-		panel_report_defect.setLayout(null);
-		
-		JLabel lbl_report_defect = new JLabel("Report defect");
-		lbl_report_defect.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
-		lbl_report_defect.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_report_defect.setBounds(52, 9, 98, 14);
-		panel_report_defect.add(lbl_report_defect);
-		
-		ImageIcon img_report_defect = new ImageIcon("src/res/report_defect.png");
-		JLabel lbl_report_defect_icon = new JLabel(scaleImage(img_report_defect.getImage(), 21, 21));
-		lbl_report_defect_icon.setBounds(10, 0, 46, 30);
-		panel_report_defect.add(lbl_report_defect_icon);
 		
 		JPanel panel_shifts = new JPanel();
-		panel_shifts.setBorder(new LineBorder(Color.BLACK));
-		panel_shifts.setBackground(new Color(105, 105, 105));
-		panel_shifts.setBounds(0, 140, 160, 30);
+		createOptionPanel(panel_shifts, 140, "Shifts", "src/res/shifts.png");
 		panelMenu.add(panel_shifts);
-		panel_shifts.setLayout(null);
-		
-		ImageIcon img_shifts = new ImageIcon("src/res/shifts.png");
-		JLabel lbl_shifts_icon = new JLabel(scaleImage(img_shifts.getImage(), 21, 21));
-		lbl_shifts_icon.setBounds(8, 0, 46, 30);
-		panel_shifts.add(lbl_shifts_icon);
-		
-		JLabel lbl_shifts = new JLabel("Shifts");
-		lbl_shifts.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
-		lbl_shifts.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_shifts.setBounds(52, 9, 98, 14);
-		panel_shifts.add(lbl_shifts);
 		
 		JPanel panel_tasks = new JPanel();
-		panel_tasks.setBorder(new LineBorder(Color.BLACK));
-		panel_tasks.setBackground(new Color(105, 105, 105));
-		panel_tasks.setBounds(0, 170, 160, 30);
+		createOptionPanel(panel_tasks, 170, "Tasks", "src/res/tasks.png");
 		panelMenu.add(panel_tasks);
-		panel_tasks.setLayout(null);
-		
-		ImageIcon img_tasks = new ImageIcon("src/res/tasks.png");
-		JLabel lbl_tasks_icon = new JLabel(scaleImage(img_tasks.getImage(), 21, 21));
-		lbl_tasks_icon.setBounds(8, 0, 46, 30);
-		panel_tasks.add(lbl_tasks_icon);
-		
-		JLabel lbl_tasks = new JLabel("Tasks");
-		lbl_tasks.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_tasks.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
-		lbl_tasks.setBounds(54, 9, 98, 14);
-		panel_tasks.add(lbl_tasks);
 		
 		JPanel panel_settings = new JPanel();
-		panel_settings.setBorder(new LineBorder(Color.BLACK));
-		panel_settings.setBackground(new Color(105, 105, 105));
-		panel_settings.setBounds(0, 200, 160, 30);
+		createOptionPanel(panel_settings, 200, "Settings", "src/res/settings.png");
 		panelMenu.add(panel_settings);
-		panel_settings.setLayout(null);
 		
-		ImageIcon img_settings = new ImageIcon("src/res/settings.png");
-		JLabel lbl_settings_icon = new JLabel(scaleImage(img_settings.getImage(), 21, 21));
-		lbl_settings_icon.setBounds(8, 0, 46, 30);
-		panel_settings.add(lbl_settings_icon);
+		JPanel panel_exit = new JPanel();
+		createOptionPanel(panel_exit, 230, "Exit", "src/res/exit.png");
+		panelMenu.add(panel_exit);
+	}
+
+	private void setUpOptionPanel(String label_name, JPanel panel, String img_src) {
+		JLabel label = new JLabel(label_name);
+		label.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setBounds(52, 9, 98, 14);
+		panel.add(label);
 		
-		JLabel lbl_settings = new JLabel("Settings");
-		lbl_settings.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_settings.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
-		lbl_settings.setBounds(54, 9, 98, 14);
-		panel_settings.add(lbl_settings);
+		ImageIcon img = new ImageIcon(img_src);
+		JLabel lbl_icon = new JLabel(scaleImage(img.getImage(), 21, 21));
+		lbl_icon.setBounds(8, 0, 46, 30);
+		panel.add(lbl_icon);
 		
-		JPanel panel_settings_1 = new JPanel();
-		panel_settings_1.setLayout(null);
-		panel_settings_1.setBorder(new LineBorder(Color.BLACK));
-		panel_settings_1.setBackground(SystemColor.controlDkShadow);
-		panel_settings_1.setBounds(0, 230, 160, 30);
-		panelMenu.add(panel_settings_1);
-		
-		ImageIcon img_exit = new ImageIcon("src/res/exit.png");
-		JLabel lbl_exit_icon = new JLabel(scaleImage(img_exit.getImage(), 21, 21));
-		lbl_exit_icon.setBounds(8, 0, 46, 30);
-		panel_settings_1.add(lbl_exit_icon);
-		
-		JLabel lbl_exit = new JLabel("Exit");
-		lbl_exit.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_exit.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
-		lbl_exit.setBounds(54, 9, 98, 14);
-		panel_settings_1.add(lbl_exit);
 	}
 
 	private ImageIcon scaleImage(Image image, int w, int h) {
 		Image scaled = image.getScaledInstance(w, h, Image.SCALE_SMOOTH);
 		return new ImageIcon(scaled);
+	}
+	
+	private void createOptionPanel(JPanel panel, int y, String label_name, String img_src) {
+		panel.setBorder(new LineBorder(Color.BLACK));
+		panel.setBackground(new Color(105, 105, 105));
+		panel.setBounds(0, y, 160, 30);
+		panel.setLayout(null);
+		setUpOptionPanel(label_name, panel, img_src);
 	}
 }
