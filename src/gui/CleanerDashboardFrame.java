@@ -39,7 +39,7 @@ public class CleanerDashboardFrame extends JFrame {
 	 */
 	public CleanerDashboardFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 400);
+		setBounds(100, 100, 700, 400);
 		//setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
@@ -48,7 +48,6 @@ public class CleanerDashboardFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panelMenu = new JPanel();
-		panelMenu.setBorder(new LineBorder(Color.BLACK));
 		panelMenu.setBackground(new Color(128, 128, 128));
 		panelMenu.setBounds(0, 0, 160, 361);
 		contentPane.add(panelMenu);
@@ -100,7 +99,6 @@ public class CleanerDashboardFrame extends JFrame {
 	
 	private void createOptionPanel(JPanel panel, int y, String label_name, String img_src) {
 		panel.addMouseListener(new PanelButtonMouseAdapter(panel));
-		panel.setBorder(new LineBorder(Color.BLACK));
 		panel.setBackground(new Color(105, 105, 105));
 		panel.setBounds(0, y, 160, 30);
 		panel.setLayout(null);
