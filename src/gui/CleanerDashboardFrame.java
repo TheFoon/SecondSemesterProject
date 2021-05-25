@@ -79,7 +79,6 @@ public class CleanerDashboardFrame extends JFrame {
 		panelMenu.add(panel_exit);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(211, 211, 211));
 		panel.setBounds(170, 11, 504, 339);
 		contentPane.add(panel);
 	}
