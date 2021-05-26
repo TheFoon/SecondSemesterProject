@@ -44,6 +44,7 @@ public class CleanerDashboardFrame extends JFrame {
 	public CleanerDashboardFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
+		setTitle("Cleaner Dashboard");
 		//setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);

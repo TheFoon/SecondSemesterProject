@@ -22,15 +22,15 @@ public class ReportDefectPanel extends JPanel {
 		lblNewLabel.setBounds(189, 24, 132, 14);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("Defect type");
 		lblNewLabel_1.setBounds(126, 59, 67, 14);
 		add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("Defect location (room name)");
 		lblNewLabel_2.setBounds(126, 115, 67, 14);
 		add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
+		JLabel lblNewLabel_3 = new JLabel("Description");
 		lblNewLabel_3.setBounds(126, 171, 67, 14);
 		add(lblNewLabel_3);
 		
@@ -44,11 +44,11 @@ public class ReportDefectPanel extends JPanel {
 		add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Report");
 		btnNewButton.setBounds(402, 305, 89, 23);
 		add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("Abort");
 		btnNewButton_1.setBounds(303, 305, 89, 23);
 		add(btnNewButton_1);
 		
