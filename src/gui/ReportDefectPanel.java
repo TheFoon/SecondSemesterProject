@@ -14,7 +14,7 @@ public class ReportDefectPanel extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Report Defect Panel");
-		lblNewLabel.setBounds(165, 150, 235, 14);
+		lblNewLabel.setBounds(181, 160, 132, 14);
 		add(lblNewLabel);
 	}
 

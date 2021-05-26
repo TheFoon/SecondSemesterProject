@@ -89,7 +89,7 @@ public class CleanerDashboardFrame extends JFrame {
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
-		JPanel report_defect_panel = new JPanel();
+		JPanel report_defect_panel = new ReportDefectPanel();
 		layeredPane.add(report_defect_panel, "report_defect_panel");
 		report_defect_panel.setLayout(null);
 		
@@ -171,6 +171,35 @@ public class CleanerDashboardFrame extends JFrame {
 		panel.setBounds(0, y, 160, 30);
 		panel.setLayout(null);
 		setUpOptionPanel(label_name, panel, img_src);
+	}
+	
+	private class PanelButtonMouseAdapter extends MouseAdapter {
+		
+		JPanel panel;
+		public PanelButtonMouseAdapter(JPanel panel) {
+			this.panel = panel;
+		}
+		
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			panel.setBackground(new Color(180, 180, 180));
+		}
+		
+		@Override
+		public void mouseExited(MouseEvent e) {
+			panel.setBackground(new Color(105, 105, 105));
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			panel.setBackground(new Color(138, 181, 147));
+			
+		}
+		
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			panel.setBackground(new Color(180, 180, 180));
+		}
 	}
 }
 

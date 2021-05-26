@@ -8,7 +8,7 @@ public class AssignTaskPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public AssignTaskPanel() {
-
+		
 	}
 
 }
