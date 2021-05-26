@@ -13,10 +13,14 @@ import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JLayeredPane;
+import java.awt.CardLayout;
 
 public class CleanerDashboardFrame extends JFrame {
 
 	private JPanel contentPane;
+	
+	private JLayeredPane layeredPane;
 
 	/**
 	 * Launch the application.
@@ -48,13 +52,14 @@ public class CleanerDashboardFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panelMenu = new JPanel();
-		panelMenu.setBackground(new Color(128, 128, 128));
 		panelMenu.setBounds(0, 0, 160, 361);
+		panelMenu.setBackground(new Color(128, 128, 128));
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 		
 		ImageIcon img_logo = new ImageIcon("src/res/logo.png");
-		JLabel lblIconLogo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));lblIconLogo.setBounds(10, 11, 140, 88);
+		JLabel lblIconLogo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));
+		lblIconLogo.setBounds(10, 11, 140, 88);
 		panelMenu.add(lblIconLogo);
 		
 		JPanel panel_report_defect = new JPanel();
@@ -76,6 +81,71 @@ public class CleanerDashboardFrame extends JFrame {
 		JPanel panel_exit = new JPanel();
 		createOptionPanel(panel_exit, 230, "Exit", "src/res/exit.png");
 		panelMenu.add(panel_exit);
+		
+		layeredPane = new JLayeredPane();
+		layeredPane.setBounds(170, 11, 504, 339);
+		contentPane.add(layeredPane);
+		layeredPane.setLayout(new CardLayout(0, 0));
+		
+		JPanel report_defect_panel = new JPanel();
+		layeredPane.add(report_defect_panel, "report_defect_panel");
+		report_defect_panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("This is the report defect");
+		lblNewLabel.setBounds(164, 160, 187, 14);
+		report_defect_panel.add(lblNewLabel);
+		
+		JPanel shifts_panel = new JPanel();
+		layeredPane.add(shifts_panel, "shifts_panel");
+		shifts_panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Shifts panel not yet implemented");
+		lblNewLabel_1.setBounds(135, 159, 208, 14);
+		shifts_panel.add(lblNewLabel_1);
+		
+		JPanel tasks_panel = new JPanel();
+		layeredPane.add(tasks_panel, "tasks_panel");
+		tasks_panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Tasks panel not yet implemented");
+		lblNewLabel_2.setBounds(170, 152, 174, 14);
+		tasks_panel.add(lblNewLabel_2);
+		
+		JPanel settings_panel = new JPanel();
+		layeredPane.add(settings_panel, "settings_panel");
+		
+		//listeners here so we can access the variables defined above
+		panel_report_defect.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				switchPanels(report_defect_panel);
+			
+			}
+		});
+		
+		panel_shifts.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				switchPanels(shifts_panel);
+			
+			}
+		});
+		
+		panel_tasks.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				switchPanels(tasks_panel);
+			
+			}
+		});
+		
+	}
+	
+	private void switchPanels(JPanel panel) {
+		layeredPane.removeAll();
+		layeredPane.add(panel);
+		layeredPane.repaint();
+		layeredPane.revalidate();
 	}
 
 	private void setUpOptionPanel(String label_name, JPanel panel, String img_src) {
@@ -125,6 +195,7 @@ public class CleanerDashboardFrame extends JFrame {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			panel.setBackground(new Color(138, 181, 147));
+			
 		}
 		
 		@Override
