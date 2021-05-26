@@ -20,7 +20,7 @@ public class DefectController {
 	public void reportDefect(String type, String description, String room_name) {
 		Defect defect = new Defect(type, description, room_name);
 		try {
-			dbDefect.insertDefect(defect, 0, 0);
+			dbDefect.insertDefect(defect, 1, 1);
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		}

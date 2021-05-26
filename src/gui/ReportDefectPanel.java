@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import control.DefectController;
@@ -89,6 +90,8 @@ public class ReportDefectPanel extends JPanel {
 		checkStringInput(description)) {
 			defect_controller.reportDefect(type, description, room_name);
 			System.out.println("Defect successfully reported");
+			JOptionPane.showMessageDialog(this, "Defect successfully reported", "Success", JOptionPane.INFORMATION_MESSAGE);
+			abortDefect();
 		} else {
 			System.out.println("One of the fields do not contain information");
 		}
