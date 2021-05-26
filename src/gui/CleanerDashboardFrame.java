@@ -62,6 +62,8 @@ public class CleanerDashboardFrame extends JFrame {
 		lblIconLogo.setBounds(10, 11, 140, 88);
 		panelMenu.add(lblIconLogo);
 		
+		
+		//the panel names need to be renamed as soon as possible
 		JPanel panel_report_defect = new JPanel();
 		createOptionPanel(panel_report_defect, 110, "Report defect", "src/res/report_defect.png");
 		panelMenu.add(panel_report_defect);
@@ -115,30 +117,26 @@ public class CleanerDashboardFrame extends JFrame {
 		layeredPane.add(settings_panel, "settings_panel");
 		
 		//listeners here so we can access the variables defined above
-		panel_report_defect.addMouseListener(new MouseAdapter() {
+		addMouseListenerToPanel(panel_report_defect, report_defect_panel);
+		
+		addMouseListenerToPanel(panel_shifts, shifts_panel);
+		
+		addMouseListenerToPanel(panel_tasks, tasks_panel);
+		
+		
+	}
+	
+	//           Next time we should create a new class for this to avoid confusion
+	//                                         |
+	//                                         v
+	private void addMouseListenerToPanel(JPanel button_panel, JPanel panel) {
+		button_panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				switchPanels(report_defect_panel);
+				switchPanels(panel);
 			
 			}
 		});
-		
-		panel_shifts.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				switchPanels(shifts_panel);
-			
-			}
-		});
-		
-		panel_tasks.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				switchPanels(tasks_panel);
-			
-			}
-		});
-		
 	}
 	
 	private void switchPanels(JPanel panel) {
