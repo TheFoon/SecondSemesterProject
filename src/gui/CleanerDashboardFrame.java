@@ -172,35 +172,6 @@ public class CleanerDashboardFrame extends JFrame {
 		panel.setLayout(null);
 		setUpOptionPanel(label_name, panel, img_src);
 	}
-	
-	private class PanelButtonMouseAdapter extends MouseAdapter {
-		
-		JPanel panel;
-		public PanelButtonMouseAdapter(JPanel panel) {
-			this.panel = panel;
-		}
-		
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			panel.setBackground(new Color(180, 180, 180));
-		}
-		
-		@Override
-		public void mouseExited(MouseEvent e) {
-			panel.setBackground(new Color(105, 105, 105));
-		}
-		
-		@Override
-		public void mousePressed(MouseEvent e) {
-			panel.setBackground(new Color(138, 181, 147));
-			
-		}
-		
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			panel.setBackground(new Color(180, 180, 180));
-		}
-	}
 }
 
 
