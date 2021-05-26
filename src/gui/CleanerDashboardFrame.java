@@ -93,10 +93,6 @@ public class CleanerDashboardFrame extends JFrame {
 		layeredPane.add(report_defect_panel, "report_defect_panel");
 		report_defect_panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("This is the report defect");
-		lblNewLabel.setBounds(164, 160, 187, 14);
-		report_defect_panel.add(lblNewLabel);
-		
 		JPanel shifts_panel = new JPanel();
 		layeredPane.add(shifts_panel, "shifts_panel");
 		shifts_panel.setLayout(null);
