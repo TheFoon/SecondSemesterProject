@@ -25,23 +25,23 @@ public class AssignTaskPanel extends JPanel {
 		add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		layeredPane.add(panel, "name_91146321162800");
+		JPanel auto_assign_tasks_panel = new JPanel();
+		layeredPane.add(auto_assign_tasks_panel, "name_91146321162800");
 		
-		JPanel panel_1 = new JPanel();
-		layeredPane.add(panel_1, "name_91164732975900");
+		JPanel manual_assign_task_panel = new JPanel();
+		layeredPane.add(manual_assign_task_panel, "name_91164732975900");
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(167, 11, 118, 23);
-		add(btnNewButton);
+		JButton btn_auto_assign = new JButton("Auto assign");
+		btn_auto_assign.setBounds(167, 11, 118, 23);
+		add(btn_auto_assign);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(295, 11, 118, 23);
-		add(btnNewButton_1);
+		JButton btn_manual_assign = new JButton("Manual assign");
+		btn_manual_assign.setBounds(295, 11, 118, 23);
+		add(btn_manual_assign);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(28, 15, 129, 14);
-		add(lblNewLabel);
+		JLabel lbl_assign_task = new JLabel("Assign task");
+		lbl_assign_task.setBounds(28, 15, 129, 14);
+		add(lbl_assign_task);
 		
 	}
 }
