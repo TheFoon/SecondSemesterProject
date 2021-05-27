@@ -20,7 +20,7 @@ public class AssignTaskPanel extends JPanel {
 		setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBorder(new LineBorder(new Color(0, 0, 0)));
+		layeredPane.setBorder(null);
 		layeredPane.setBounds(0, 45, 450, 255);
 		add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
@@ -32,12 +32,16 @@ public class AssignTaskPanel extends JPanel {
 		layeredPane.add(panel_1, "name_91164732975900");
 		
 		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(10, 11, 89, 23);
+		btnNewButton.setBounds(167, 11, 118, 23);
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(109, 11, 89, 23);
+		btnNewButton_1.setBounds(295, 11, 118, 23);
 		add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(28, 15, 129, 14);
+		add(lblNewLabel);
 		
 	}
 }
