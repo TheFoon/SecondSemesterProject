@@ -2,7 +2,6 @@ package gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
 import java.awt.event.MouseAdapter;
@@ -11,8 +10,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
 
 public class ManualAssignTaskPanel extends JPanel {
-	
-	private JLayeredPane layeredPane;
 
 	/**
 	 * Create the panel.
@@ -46,21 +43,5 @@ public class ManualAssignTaskPanel extends JPanel {
 
 	}
 	
-	private void addMouseListenerToPanel(JPanel button_panel, JPanel panel) {
-		button_panel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				switchPanels(panel);
-			
-			}
-		});
-	}
-
-	protected void switchPanels(JPanel panel) {
-		layeredPane.removeAll();
-		layeredPane.add(panel);
-		layeredPane.repaint();
-		layeredPane.revalidate();
-		
-	}
+	
 }

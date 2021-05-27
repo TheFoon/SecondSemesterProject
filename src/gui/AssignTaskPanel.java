@@ -34,12 +34,13 @@ public class AssignTaskPanel extends JPanel {
 		JPanel auto_assign_tasks_panel = new JPanel();
 		layeredPane.add(auto_assign_tasks_panel, "name_91146321162800");
 		
-		JPanel manual_assign_task_panel = new JPanel();
+		JPanel manual_assign_task_panel = new ManualAssignTaskPanel();
 		layeredPane.add(manual_assign_task_panel, "name_91164732975900");
 		
 		JButton btn_auto_assign = new JButton("Auto assign");
 		btn_auto_assign.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				switchPanels(auto_assign_tasks_panel);
 			}
 		});
 		btn_auto_assign.setBounds(167, 11, 118, 23);
@@ -48,6 +49,7 @@ public class AssignTaskPanel extends JPanel {
 		JButton btn_manual_assign = new JButton("Manual assign");
 		btn_manual_assign.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				switchPanels(manual_assign_task_panel);
 			}
 		});
 		btn_manual_assign.setBounds(295, 11, 118, 23);
