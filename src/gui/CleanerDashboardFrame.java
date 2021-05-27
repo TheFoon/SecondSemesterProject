@@ -19,9 +19,9 @@ import java.awt.CardLayout;
 public class CleanerDashboardFrame extends JFrame {
 
 	private JPanel contentPane;
-	
 	private JLayeredPane layeredPane;
-
+	
+	private String res = "res/cleaner_dashboard/";
 	/**
 	 * Launch the application.
 	 */
@@ -42,6 +42,7 @@ public class CleanerDashboardFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public CleanerDashboardFrame() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		setTitle("Cleaner Dashboard");
@@ -60,65 +61,49 @@ public class CleanerDashboardFrame extends JFrame {
 		panelMenu.setLayout(null);
 		
 		ImageIcon img_logo = new ImageIcon("res/logo.png");
-		JLabel lblIconLogo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));
-		lblIconLogo.setBounds(10, 11, 140, 88);
-		panelMenu.add(lblIconLogo);
+		JLabel lbl_icon_logo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));
+		lbl_icon_logo.setBounds(10, 11, 140, 88);
+		panelMenu.add(lbl_icon_logo);
 		
 		
 		//the panel names need to be renamed as soon as possible
 		JPanel panel_report_defect = new JPanel();
-		createOptionPanel(panel_report_defect, 110, "Report defect", "res/cleaner_dashboard/report_defect.png");
+		createOptionPanel(panel_report_defect, 110, "Report defect", "report_defect.png");
 		panelMenu.add(panel_report_defect);
 		
 		JPanel panel_shifts = new JPanel();
-		createOptionPanel(panel_shifts, 140, "Shifts", "res/cleaner_dashboard/shifts.png");
+		createOptionPanel(panel_shifts, 140, "Shifts", "shifts.png");
 		panelMenu.add(panel_shifts);
 		
 		JPanel panel_tasks = new JPanel();
-		createOptionPanel(panel_tasks, 170, "Tasks", "res/cleaner_dashboard/tasks.png");
+		createOptionPanel(panel_tasks, 170, "Tasks", "tasks.png");
 		panelMenu.add(panel_tasks);
 		
 		JPanel panel_settings = new JPanel();
-		createOptionPanel(panel_settings, 200, "Settings", "res/cleaner_dashboard/settings.png");
+		createOptionPanel(panel_settings, 200, "Settings", "settings.png");
 		panelMenu.add(panel_settings);
 		
 		JPanel panel_exit = new JPanel();
-		createOptionPanel(panel_exit, 230, "Exit", "res/exit.png");
+		createOptionPanel(panel_exit, 230, "Exit", "exit.png");
 		panelMenu.add(panel_exit);
 		
-		layeredPane = new JLayeredPane();
-		layeredPane.setBounds(170, 11, 504, 339);
-		contentPane.add(layeredPane);
-		layeredPane.setLayout(new CardLayout(0, 0));
+		createLayeredPane();
 		
 		JPanel report_defect_panel = new ReportDefectPanel();
 		layeredPane.add(report_defect_panel, "report_defect_panel");
-		report_defect_panel.setLayout(null);
 		
-		JPanel shifts_panel = new JPanel();
+		JPanel shifts_panel = new ShiftsPanel();
 		layeredPane.add(shifts_panel, "shifts_panel");
-		shifts_panel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Shifts panel not yet implemented");
-		lblNewLabel_1.setBounds(135, 159, 208, 14);
-		shifts_panel.add(lblNewLabel_1);
-		
-		JPanel tasks_panel = new JPanel();
+		JPanel tasks_panel = new TasksPanel();
 		layeredPane.add(tasks_panel, "tasks_panel");
-		tasks_panel.setLayout(null);
-		
-		JLabel lblNewLabel_2 = new JLabel("Tasks panel not yet implemented");
-		lblNewLabel_2.setBounds(170, 152, 174, 14);
-		tasks_panel.add(lblNewLabel_2);
 		
 		JPanel settings_panel = new JPanel();
 		layeredPane.add(settings_panel, "settings_panel");
 		
-		//listeners here so we can access the variables defined above
+		
 		addMouseListenerToPanel(panel_report_defect, report_defect_panel);
-		
 		addMouseListenerToPanel(panel_shifts, shifts_panel);
-		
 		addMouseListenerToPanel(panel_tasks, tasks_panel);
 		
 		
@@ -144,14 +129,14 @@ public class CleanerDashboardFrame extends JFrame {
 		layeredPane.revalidate();
 	}
 
-	private void setUpOptionPanel(String label_name, JPanel panel, String img_src) {
+	private void setUpOptionPanel(String label_name, JPanel panel, String img_name) {
 		JLabel label = new JLabel(label_name);
 		label.setFont(new Font("Ubuntu Mono", Font.BOLD, 11));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBounds(52, 9, 98, 14);
 		panel.add(label);
 		
-		ImageIcon img = new ImageIcon(img_src);
+		ImageIcon img = new ImageIcon(res + img_name);
 		JLabel lbl_icon = new JLabel(scaleImage(img.getImage(), 21, 21));
 		lbl_icon.setBounds(8, 0, 46, 30);
 		panel.add(lbl_icon);
@@ -163,41 +148,19 @@ public class CleanerDashboardFrame extends JFrame {
 		return new ImageIcon(scaled);
 	}
 	
-	private void createOptionPanel(JPanel panel, int y, String label_name, String img_src) {
+	private void createOptionPanel(JPanel panel, int y, String label_name, String img_name) {
 		panel.addMouseListener(new PanelButtonMouseAdapter(panel));
 		panel.setBackground(new Color(105, 105, 105));
 		panel.setBounds(0, y, 160, 30);
 		panel.setLayout(null);
-		setUpOptionPanel(label_name, panel, img_src);
+		setUpOptionPanel(label_name, panel, img_name);
 	}
-	
-	private class PanelButtonMouseAdapter extends MouseAdapter {
-		
-		JPanel panel;
-		public PanelButtonMouseAdapter(JPanel panel) {
-			this.panel = panel;
-		}
-		
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			panel.setBackground(new Color(180, 180, 180));
-		}
-		
-		@Override
-		public void mouseExited(MouseEvent e) {
-			panel.setBackground(new Color(105, 105, 105));
-		}
-		
-		@Override
-		public void mousePressed(MouseEvent e) {
-			panel.setBackground(new Color(138, 181, 147));
-			
-		}
-		
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			panel.setBackground(new Color(180, 180, 180));
-		}
+
+	private void createLayeredPane() {
+		layeredPane = new JLayeredPane();
+		layeredPane.setBounds(170, 11, 504, 339);
+		contentPane.add(layeredPane);
+		layeredPane.setLayout(new CardLayout(0, 0));
 	}
 }
 
