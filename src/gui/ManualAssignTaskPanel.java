@@ -2,10 +2,17 @@ package gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JComboBox;
 
 public class ManualAssignTaskPanel extends JPanel {
+	
+	private JLayeredPane layeredPane;
 
 	/**
 	 * Create the panel.
@@ -13,7 +20,7 @@ public class ManualAssignTaskPanel extends JPanel {
 	public ManualAssignTaskPanel() {
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("Cleaner");
 		lblNewLabel.setBounds(46, 51, 46, 14);
 		add(lblNewLabel);
 		
@@ -21,7 +28,7 @@ public class ManualAssignTaskPanel extends JPanel {
 		comboBox.setBounds(46, 76, 110, 22);
 		add(comboBox);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("Shift");
 		lblNewLabel_1.setBounds(46, 109, 46, 14);
 		add(lblNewLabel_1);
 		
@@ -29,7 +36,7 @@ public class ManualAssignTaskPanel extends JPanel {
 		comboBox_1.setBounds(46, 134, 110, 22);
 		add(comboBox_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("Task");
 		lblNewLabel_2.setBounds(46, 167, 46, 14);
 		add(lblNewLabel_2);
 		
@@ -37,5 +44,23 @@ public class ManualAssignTaskPanel extends JPanel {
 		comboBox_2.setBounds(46, 192, 110, 22);
 		add(comboBox_2);
 
+	}
+	
+	private void addMouseListenerToPanel(JPanel button_panel, JPanel panel) {
+		button_panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				switchPanels(panel);
+			
+			}
+		});
+	}
+
+	protected void switchPanels(JPanel panel) {
+		layeredPane.removeAll();
+		layeredPane.add(panel);
+		layeredPane.repaint();
+		layeredPane.revalidate();
+		
 	}
 }

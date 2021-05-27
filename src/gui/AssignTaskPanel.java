@@ -10,8 +10,12 @@ import java.awt.CardLayout;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AssignTaskPanel extends JPanel {
+	
+	JLayeredPane layeredPane;
 
 	/**
 	 * Create the panel.
@@ -19,7 +23,7 @@ public class AssignTaskPanel extends JPanel {
 	public AssignTaskPanel() {
 		setLayout(null);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane = new JLayeredPane();
 		layeredPane.setBorder(null);
 		layeredPane.setBounds(0, 45, 450, 255);
 		add(layeredPane);
@@ -42,6 +46,14 @@ public class AssignTaskPanel extends JPanel {
 		JLabel lbl_assign_task = new JLabel("Assign task");
 		lbl_assign_task.setBounds(28, 15, 129, 14);
 		add(lbl_assign_task);
+		
+	}
+
+	protected void switchPanels(JPanel panel) {
+		layeredPane.removeAll();
+		layeredPane.add(panel);
+		layeredPane.repaint();
+		layeredPane.revalidate();
 		
 	}
 }
