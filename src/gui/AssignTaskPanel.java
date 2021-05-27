@@ -23,11 +23,14 @@ public class AssignTaskPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public AssignTaskPanel() {
+		setBackground(Color.GRAY);
+		setForeground(Color.GRAY);
 		setLayout(null);
 		
 		layeredPane = new JLayeredPane();
+		layeredPane.setBackground(Color.GRAY);
 		layeredPane.setBorder(null);
-		layeredPane.setBounds(0, 45, 450, 255);
+		layeredPane.setBounds(0, 45, 504, 301);
 		add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		

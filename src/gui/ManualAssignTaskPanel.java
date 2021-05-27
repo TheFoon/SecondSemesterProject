@@ -23,7 +23,7 @@ public class ManualAssignTaskPanel extends JPanel {
 		add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(100, 51, 110, 22);
+		comboBox.setBounds(157, 51, 110, 22);
 		add(comboBox);
 		
 		JLabel lblNewLabel_1 = new JLabel("Shift");
@@ -31,7 +31,7 @@ public class ManualAssignTaskPanel extends JPanel {
 		add(lblNewLabel_1);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(100, 105, 110, 22);
+		comboBox_1.setBounds(157, 105, 110, 22);
 		add(comboBox_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Task");
@@ -39,11 +39,11 @@ public class ManualAssignTaskPanel extends JPanel {
 		add(lblNewLabel_2);
 		
 		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(100, 163, 110, 22);
+		comboBox_2.setBounds(157, 163, 110, 22);
 		add(comboBox_2);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(351, 266, 89, 23);
+		JButton btnNewButton = new JButton("Assign");
+		btnNewButton.setBounds(330, 251, 110, 23);
 		add(btnNewButton);
 
 	}
