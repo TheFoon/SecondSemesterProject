@@ -58,7 +58,7 @@ public class CleanerDashboardFrame extends JFrame {
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 		
-		ImageIcon img_logo = new ImageIcon("src/res/logo.png");
+		ImageIcon img_logo = new ImageIcon("res/logo.png");
 		JLabel lblIconLogo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));
 		lblIconLogo.setBounds(10, 11, 140, 88);
 		panelMenu.add(lblIconLogo);
@@ -66,23 +66,23 @@ public class CleanerDashboardFrame extends JFrame {
 		
 		//the panel names need to be renamed as soon as possible
 		JPanel panel_report_defect = new JPanel();
-		createOptionPanel(panel_report_defect, 110, "Report defect", "src/res/report_defect.png");
+		createOptionPanel(panel_report_defect, 110, "Report defect", "res/cleaner_dashboard/report_defect.png");
 		panelMenu.add(panel_report_defect);
 		
 		JPanel panel_shifts = new JPanel();
-		createOptionPanel(panel_shifts, 140, "Shifts", "src/res/shifts.png");
+		createOptionPanel(panel_shifts, 140, "Shifts", "res/cleaner_dashboard/shifts.png");
 		panelMenu.add(panel_shifts);
 		
 		JPanel panel_tasks = new JPanel();
-		createOptionPanel(panel_tasks, 170, "Tasks", "src/res/tasks.png");
+		createOptionPanel(panel_tasks, 170, "Tasks", "res/cleaner_dashboard/tasks.png");
 		panelMenu.add(panel_tasks);
 		
 		JPanel panel_settings = new JPanel();
-		createOptionPanel(panel_settings, 200, "Settings", "src/res/settings.png");
+		createOptionPanel(panel_settings, 200, "Settings", "res/cleaner_dashboard/settings.png");
 		panelMenu.add(panel_settings);
 		
 		JPanel panel_exit = new JPanel();
-		createOptionPanel(panel_exit, 230, "Exit", "src/res/exit.png");
+		createOptionPanel(panel_exit, 230, "Exit", "res/exit.png");
 		panelMenu.add(panel_exit);
 		
 		layeredPane = new JLayeredPane();

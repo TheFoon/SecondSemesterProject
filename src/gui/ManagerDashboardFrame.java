@@ -58,7 +58,7 @@ public class ManagerDashboardFrame extends JFrame {
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 		
-		ImageIcon img_logo = new ImageIcon("src/res/logo.png");
+		ImageIcon img_logo = new ImageIcon("res/logo.png");
 		JLabel lblIconLogo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));
 		lblIconLogo.setBounds(10, 11, 140, 88);
 		panelMenu.add(lblIconLogo);
@@ -86,7 +86,7 @@ public class ManagerDashboardFrame extends JFrame {
 		panelMenu.add(manage_housing_units);
 		
 		JPanel exit_button = new JPanel();
-		createOptionPanel(exit_button, 260, "Exit", "src/res/exit.png");
+		createOptionPanel(exit_button, 260, "Exit", "res/exit.png");
 		panelMenu.add(exit_button);
 		
 		layeredPane = new JLayeredPane();
