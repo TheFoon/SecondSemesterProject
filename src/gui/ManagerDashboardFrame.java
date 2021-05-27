@@ -60,7 +60,7 @@ public class ManagerDashboardFrame extends JFrame {
 		
 		ImageIcon img_logo = new ImageIcon("res/logo.png");
 		JLabel lblIconLogo = new JLabel(scaleImage(img_logo.getImage(), 118, 41));
-		lblIconLogo.setBounds(10, 11, 140, 88);
+		lblIconLogo.setBounds(10, 11, 140, 74);
 		panelMenu.add(lblIconLogo);
 		
 		
@@ -120,6 +120,12 @@ public class ManagerDashboardFrame extends JFrame {
 		addMouseListenerToPanel(manage_shifts_button, manage_shifts_panel);
 		
 		addMouseListenerToPanel(manage_tasks_button, manage_tasks_panel);
+		
+		JLabel lblNewLabel = new JLabel("Admin");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setBounds(79, 65, 45, 14);
+		panelMenu.add(lblNewLabel);
 		
 		
 	}
