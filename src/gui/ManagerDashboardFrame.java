@@ -45,6 +45,7 @@ public class ManagerDashboardFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		setTitle("Manager Dashboard");
+		setResizable(false);
 		//setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
