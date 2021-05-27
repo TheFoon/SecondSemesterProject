@@ -12,6 +12,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AssignTaskPanel extends JPanel {
 	
@@ -36,10 +38,18 @@ public class AssignTaskPanel extends JPanel {
 		layeredPane.add(manual_assign_task_panel, "name_91164732975900");
 		
 		JButton btn_auto_assign = new JButton("Auto assign");
+		btn_auto_assign.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btn_auto_assign.setBounds(167, 11, 118, 23);
 		add(btn_auto_assign);
 		
 		JButton btn_manual_assign = new JButton("Manual assign");
+		btn_manual_assign.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btn_manual_assign.setBounds(295, 11, 118, 23);
 		add(btn_manual_assign);
 		
