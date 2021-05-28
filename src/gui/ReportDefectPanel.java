@@ -62,7 +62,7 @@ public class ReportDefectPanel extends JPanel {
 				reportDefect();
 			}
 		});
-		btn_report.setBounds(402, 305, 89, 23);
+		btn_report.setBounds(306, 305, 89, 23);
 		add(btn_report);
 		
 		JButton btn_abort = new JButton("Abort");
@@ -71,7 +71,7 @@ public class ReportDefectPanel extends JPanel {
 				abortDefect();
 			}
 		});
-		btn_abort.setBounds(303, 305, 89, 23);
+		btn_abort.setBounds(405, 305, 89, 23);
 		add(btn_abort);
 		
 		txt_area_description = new JTextArea();
