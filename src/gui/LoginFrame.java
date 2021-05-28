@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -15,13 +16,17 @@ import javax.swing.UIManager;
 import javax.swing.JPasswordField;
 import javax.swing.Icon;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class LoginFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txt_username;
 	private JPasswordField passwordField;
+	
+	private List<Account> accounts = new ArrayList<Account>();
 	
 	private String username;
 	private String password;
@@ -56,10 +61,13 @@ public class LoginFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setFont(UIManager.getFont("Panel.font"));
-		lblNewLabel.setBounds(138, 11, 44, 14);
-		contentPane.add(lblNewLabel);
+		JLabel lbl_login = new JLabel("Login");
+		lbl_login.setFont(UIManager.getFont("Panel.font"));
+		lbl_login.setBounds(138, 11, 44, 14);
+		contentPane.add(lbl_login);
+		
+		accounts.add(new Account("manager", "pass123"));
+		accounts.add(new Account("cleaner", "pass123"));
 		
 		JButton btnNewButton_2 = new JButton("Login");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -70,14 +78,14 @@ public class LoginFrame extends JFrame {
 		btnNewButton_2.setBounds(92, 157, 124, 23);
 		contentPane.add(btnNewButton_2);
 		
-		JLabel lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setBounds(46, 36, 68, 14);
-		contentPane.add(lblNewLabel_1);
+		JLabel lbl_username = new JLabel("Username");
+		lbl_username.setBounds(46, 36, 68, 14);
+		contentPane.add(lbl_username);
 		
-		textField = new JTextField();
-		textField.setBounds(46, 61, 220, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txt_username = new JTextField();
+		txt_username.setBounds(46, 61, 220, 20);
+		contentPane.add(txt_username);
+		txt_username.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Password");
 		lblNewLabel_2.setBounds(46, 92, 89, 14);
@@ -104,8 +112,44 @@ public class LoginFrame extends JFrame {
 	}
 	
 	private void login() {
-		try{
-			username = 
+		username = txt_username.getText();
+		password = new String(passwordField.getPassword());
+		
+		Account account = new Account(username, password);
+		
+		if(accounts.contains(account)) {
+			System.out.print("login credentials matched");
+		} else {
+			JOptionPane.showMessageDialog(this, "Your username or password is invalid");
 		}
+		
+	}
+	
+	private class Account {
+		private String username;
+		private String password;
+		
+		public Account(String username, String password) {
+			this.username = username;
+			this.password = password;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			boolean equals = false;
+			if(username.equals(((Account)obj).getUsername()) && password.equals(((Account)obj).getPassword())) {
+				equals = true;
+			}
+			return equals;
+		}
+
+		public String getUsername() {
+			return username;
+		}
+
+		public String getPassword() {
+			return password;
+		}
+		
 	}
 }
