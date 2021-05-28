@@ -89,6 +89,14 @@ public class ManagerDashboardFrame extends JFrame {
 		JPanel exit_button = new JPanel();
 		createOptionPanel(exit_button, 260, "Exit", "res/exit.png");
 		panelMenu.add(exit_button);
+		exit_button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				JFrame frame = new LoginFrame();
+				frame.setVisible(true);
+				closeDashboard();
+			}
+		});
 		
 		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(170, 11, 504, 339);
@@ -131,6 +139,10 @@ public class ManagerDashboardFrame extends JFrame {
 		
 	}
 	
+	protected void closeDashboard() {
+		this.dispose();
+	}
+
 	//           Next time we should create a new class for this to avoid confusion
 	//                                         |
 	//                                         v

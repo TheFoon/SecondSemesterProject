@@ -86,6 +86,14 @@ public class CleanerDashboardFrame extends JFrame {
 		JPanel panel_exit = new JPanel();
 		createOptionPanel(panel_exit, 230, "Exit", "exit.png");
 		panelMenu.add(panel_exit);
+		panel_exit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				JFrame frame = new LoginFrame();
+				frame.setVisible(true);
+				closeDashboard();
+			}
+		});
 		
 		createLayeredPane();
 		
@@ -109,6 +117,11 @@ public class CleanerDashboardFrame extends JFrame {
 		
 	}
 	
+	protected void closeDashboard() {
+		this.dispose();
+		
+	}
+
 	//           Next time we should create a new class for this to avoid confusion
 	//                                         |
 	//                                         v
