@@ -26,6 +26,8 @@ public class LoginFrame extends JFrame {
 	private JTextField txt_username;
 	private JPasswordField passwordField;
 	
+	private JFrame frame;
+	
 	private List<Account> accounts = new ArrayList<Account>();
 	
 	private String username;
@@ -66,8 +68,8 @@ public class LoginFrame extends JFrame {
 		lbl_login.setBounds(138, 11, 44, 14);
 		contentPane.add(lbl_login);
 		
-		accounts.add(new Account("manager", "pass123"));
-		accounts.add(new Account("cleaner", "pass123"));
+		accounts.add(new Account("manager", "pass123", "manager"));
+		accounts.add(new Account("cleaner", "pass123", "cleaner"));
 		
 		JButton btnNewButton_2 = new JButton("Login");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -114,13 +116,30 @@ public class LoginFrame extends JFrame {
 	private void login() {
 		username = txt_username.getText();
 		password = new String(passwordField.getPassword());
+		String account_type;
 		
-		Account account = new Account(username, password);
+		Account account = new Account(username, password, null);
 		
 		if(accounts.contains(account)) {
-			System.out.print("login credentials matched");
+			System.out.println("login credentials matched");
+			account_type = accounts.get(accounts.indexOf(account)).getAccountType();
+			System.out.println("logging in with account type: "+account_type);
+			
+			switch(account_type) {
+			case "manager":
+				frame = new ManagerDashboardFrame();
+				frame.setVisible(true);
+				this.dispose();
+				break;
+			case "cleaner":
+				frame = new CleanerDashboardFrame();
+				frame.setVisible(true);
+				this.dispose();
+				break;
+			}
+			
 		} else {
-			JOptionPane.showMessageDialog(this, "Your username or password is invalid");
+			JOptionPane.showMessageDialog(this, "Entered username or password is invalid");
 		}
 		
 	}
@@ -128,10 +147,12 @@ public class LoginFrame extends JFrame {
 	private class Account {
 		private String username;
 		private String password;
+		private String account_type;
 		
-		public Account(String username, String password) {
+		public Account(String username, String password, String account_type) {
 			this.username = username;
 			this.password = password;
+			this.account_type = account_type;
 		}
 
 		@Override
@@ -149,6 +170,10 @@ public class LoginFrame extends JFrame {
 
 		public String getPassword() {
 			return password;
+		}
+		
+		public String getAccountType() {
+			return account_type;
 		}
 		
 	}
