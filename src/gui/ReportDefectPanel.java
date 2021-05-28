@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import control.DefectController;
+import database.DataAccessException;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -88,10 +89,16 @@ public class ReportDefectPanel extends JPanel {
 		if(checkStringInput(type)  && 
 		checkStringInput(room_name) && 
 		checkStringInput(description)) {
-			defect_controller.reportDefect(type, description, room_name);
-			System.out.println("Defect successfully reported");
-			JOptionPane.showMessageDialog(this, "Defect successfully reported", "Success", JOptionPane.INFORMATION_MESSAGE);
-			abortDefect();
+			try {
+				defect_controller.reportDefect(type, description, room_name);
+				System.out.println("Defect successfully reported");
+				JOptionPane.showMessageDialog(this, "Defect successfully reported", "Success", JOptionPane.INFORMATION_MESSAGE);
+				abortDefect();
+			} catch (DataAccessException e) {
+				JOptionPane.showMessageDialog(this, "Defect was not reported (Database faliure)");
+				e.printStackTrace();
+			}
+			
 		} else {
 			System.out.println("One of the fields do not contain information");
 		}

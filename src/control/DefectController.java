@@ -17,12 +17,8 @@ public class DefectController {
 		}
 	}
 	
-	public void reportDefect(String type, String description, String room_name) {
+	public void reportDefect(String type, String description, String room_name) throws DataAccessException {
 		Defect defect = new Defect(type, description, room_name);
-		try {
-			dbDefect.insertDefect(defect, 1, 1);
-		} catch (DataAccessException e) {
-			e.printStackTrace();
-		}
+		dbDefect.insertDefect(defect, 2, 2);
 	}
 }
